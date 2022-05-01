@@ -1,5 +1,3 @@
-// const form = document.getElementById('addForm');
-// const itemList = document.getElementById('items');
 const form = document.getElementById('addForm');
 const itemList = document.getElementById('items');
 const filter = document.getElementById('filter');
@@ -15,6 +13,7 @@ filter.addEventListener('keyup', filterItems);
 
 //Add item
 function addItem(e) {
+    //Prevent actual submit
     e.preventDefault();
     //Get input value
 const newItem = document.getElementById('item').value;
@@ -46,8 +45,8 @@ itemList.appendChild(li);
 function removeItem(e) {
     if(e.target.classList.contains('delete')) {
         if(confirm('Are you sure?')) {
-            const li = e.target.parentElement;
-            itemList.removeChild(li);
+            e.target.parentElement.remove();
+            //itemList.removeChild(li);
         }
     }
 }
